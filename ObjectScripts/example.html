@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart phone :</h1>
+    <div id="product" ></div>
+    <button onclick="displayDescription()">smart phone  </button>
+
+    <script>
+
+
+        let productInformation = {
+            productName: "Smartphone",
+            productId: 12345,
+            price: 599.99,
+            inStock: true,
+            features: ["Touchscreen", "4G LTE", "Dual Camera"],
+            getDescription: function() {
+              return `The ${this.productName} (ID: ${this.productId}) is available for $${this.price}. It has the following features: ${this.features.join(', ')}.`;
+
+            },
+            updatePrice: function(newPrice) {
+              this.price = newPrice;
+              console.log(`The price of ${this.productName} has been updated to $${this.price}.`);
+            }
+          };
+
+          function displayDescription() {
+            let description = productInformation.getDescription();
+            document.getElementById("product").innerHTML = description;
+            
+          }
+          
+          // Accessing object properties
+          console.log("Product Name:", productInformation.productName);
+          console.log("Product ID:", productInformation.productId);
+          console.log("Price:", productInformation.price);
+          console.log("In Stock:", productInformation.inStock);
+          console.log("Features:", productInformation.features);
+          
+          // Invoking object method to get description
+          console.log(productInformation.getDescription());
+          
+          // Invoking object method to update price
+          productInformation.updatePrice(649.99);</script>
+
+
+</body>
+</html>
+  
